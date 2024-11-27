@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header_pitch{
+    margin: auto;
+    display: flex;
+}
+.container{
+    margin: auto;
+    height: 145vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.bar_right{
+    width: 30%;
+    border: 2px solid black;
+}
+#pitch{
+    position: relative;
+    width: 50%;
+    background-image: url(img/img_1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background-size: 745px; */
+}
+/* .gk{
+    content: "";
+    position: absolute;
+    top: 48%;
+    left: 2%;
+    display: block;
+    width: 3%;
+    height: 5%;
+    background-color: #4F7EDC;
+    border: 1px solid #324978;
+    border-radius: 50%;
+    z-index: 2;
+  } */

@@ -1,0 +1,213 @@
+{
+    "formations" : [
+        {
+            "id" : "4-3-3",
+            "players_pos" : [
+                {
+                    "id": 1,
+                    "name": "Goalkeeper",
+                    "role": "GK",
+                    "position": {
+                      "x": "50%",
+                      "y": "8.33%"
+                    }
+                  },
+                  {
+                    "id": 2,
+                    "name": "Center Back 1",
+                    "role": "CB",
+                    "position": {
+                      "x": "25%",
+                      "y": "33.33%"
+                    }
+                  },
+                  {
+                    "id": 3,
+                    "name": "Center Back 2",
+                    "role": "CB",
+                    "position": {
+                      "x": "75%",
+                      "y": "33.33%"
+                    }
+                  },
+                  {
+                    "id": 4,
+                    "name": "Left Back",
+                    "role": "LB",
+                    "position": {
+                      "x": "12.5%",
+                      "y": "58.33%"
+                    }
+                  },
+                  {
+                    "id": 5,
+                    "name": "Right Back",
+                    "role": "RB",
+                    "position": {
+                      "x": "87.5%",
+                      "y": "58.33%"
+                    }
+                  },
+                  {
+                    "id": 6,
+                    "name": "Central Midfielder 1",
+                    "role": "CM",
+                    "position": {
+                      "x": "40%",
+                      "y": "66.67%"
+                    }
+                  },
+                  {
+                    "id": 7,
+                    "name": "Central Midfielder 2",
+                    "role": "CM",
+                    "position": {
+                      "x": "60%",
+                      "y": "66.67%"
+                    }
+                  },
+                  {
+                    "id": 8,
+                    "name": "Left Wing",
+                    "role": "LW",
+                    "position": {
+                      "x": "12.5%",
+                      "y": "83.33%"
+                    }
+                  },
+                  {
+                    "id": 9,
+                    "name": "Right Wing",
+                    "role": "RW",
+                    "position": {
+                      "x": "87.5%",
+                      "y": "83.33%"
+                    }
+                  },
+                  {
+                    "id": 10,
+                    "name": "Striker 1",
+                    "role": "ST",
+                    "position": {
+                      "x": "50%",
+                      "y": "91.67%"
+                    }
+                  },
+                  {
+                    "id": 11,
+                    "name": "Striker 2",
+                    "role": "ST",
+                    "position": {
+                      "x": "50%",
+                      "y": "91.67%"
+                    }
+                  }
+            ]
+        },
+
+        {
+            "id" : "4-3-3",
+            "players_pos": [
+            {
+                "id": 1,
+                "name": "Goalkeeper",
+                "role": "GK",
+                "position": {
+                "x": "50%",
+                "y": "8.33%"
+                }
+            },
+            {
+                "id": 2,
+                "name": "Center Back 1",
+                "role": "CB",
+                "position": {
+                "x": "25%",
+                "y": "33.33%"
+                }
+            },
+            {
+                "id": 3,
+                "name": "Center Back 2",
+                "role": "CB",
+                "position": {
+                "x": "75%",
+                "y": "33.33%"
+                }
+            },
+            {
+                "id": 4,
+                "name": "Left Back",
+                "role": "LB",
+                "position": {
+                "x": "12.5%",
+                "y": "58.33%"
+                }
+            },
+            {
+                "id": 5,
+                "name": "Right Back",
+                "role": "RB",
+                "position": {
+                "x": "87.5%",
+                "y": "58.33%"
+                }
+            },
+            {
+                "id": 6,
+                "name": "Central Midfielder 1",
+                "role": "CM",
+                "position": {
+                "x": "40%",
+                "y": "66.67%"
+                }
+            },
+            {
+                "id": 7,
+                "name": "Central Midfielder 2",
+                "role": "CM",
+                "position": {
+                "x": "60%",
+                "y": "66.67%"
+                }
+            },
+            {
+                "id": 8,
+                "name": "Central Midfielder 3",
+                "role": "CM",
+                "position": {
+                "x": "50%",
+                "y": "75%"
+                }
+            },
+            {
+                "id": 9,
+                "name": "Left Wing",
+                "role": "LW",
+                "position": {
+                "x": "12.5%",
+                "y": "83.33%"
+                }
+            },
+            {
+                "id": 10,
+                "name": "Right Wing",
+                "role": "RW",
+                "position": {
+                "x": "87.5%",
+                "y": "83.33%"
+                }
+            },
+            {
+                "id": 11,
+                "name": "Striker",
+                "role": "ST",
+                "position": {
+                "x": "50%",
+                "y": "91.67%"
+                }
+            }
+            ]
+        }
+    ]
+}
