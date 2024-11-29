@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container_card" id="container_card">
+    </div>
+    <script>
+
+        const container_card = document.getElementById("container_card");
+        fetch('./players.json')
+        .then(response => response.json())
+        .then(data => {
+            data.players.forEach(player=> { 
+                let card = document.createElement("div");
+                card.classList.add('style_card');
+                card.innerHTML = `
+                <div>
+                    <img class="player_image" src="${player.photo}" alt="${player.name}">
+                    <div class="card_content">
+                        <div class="player_name">${player.name}</div>
+                        <div class="player_position">${player.position}</div>
+                        <div class="player_details">
+                            Nationalité: ${player.nationality}<br>
+                            Club: ${player.club}
+                        </div>
+                        <div class="player_rating">Note: ${player.rating}</div>
+                    </div>
+                </div>
+                `;
+                container_card.appendChild(card);
+        
+    });
+  })
+    </script>
+</body>
+</html>

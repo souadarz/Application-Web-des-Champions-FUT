@@ -6,6 +6,10 @@
 .header_pitch{
     margin: auto;
     display: flex;
+    justify-content: space-evenly;
+}
+#myselect{
+    border : 2px solid black;
 }
 .container{
     margin: auto;
@@ -16,7 +20,10 @@
     justify-content: center;
 }
 .bar_right{
-    width: 30%;
+    overflow: auto;
+    height: 79rem;
+    width: 27rem;
+    /* width: 30%; */
     border: 2px solid black;
 }
 #pitch{
@@ -82,9 +89,7 @@
     color: #ffcc00;
 } */
 
-
-.form-add-player{
-    /* position: absolute; */
+/* #id_form{
     position: fixed;
     inset: 0;
     top: 0;
@@ -94,10 +99,11 @@
     display: flex;
     flex-direction: column;
     padding: 10em;
-    /* border: ; */
     z-index: 5;
     visibility: hidden;
-}
+} */
+
+
 .info_player{
     width: 100%;
 }
