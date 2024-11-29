@@ -12,6 +12,7 @@
     height: 145vh;
     width: 100%;
     display: flex;
+    gap : 4px;
     justify-content: center;
 }
 .bar_right{
@@ -19,23 +20,108 @@
     border: 2px solid black;
 }
 #pitch{
+    height: 1250px;
+    width: 800px;
     position: relative;
-    width: 50%;
     background-image: url(img/img_1.png);
     background-position: center;
     background-repeat: no-repeat;
-    /* background-size: 745px; */
+    background-size: 100% 100%;
 }
-/* .gk{
-    content: "";
-    position: absolute;
-    top: 48%;
-    left: 2%;
-    display: block;
-    width: 3%;
-    height: 5%;
-    background-color: #4F7EDC;
-    border: 1px solid #324978;
-    border-radius: 50%;
-    z-index: 2;
-  } */
+@media (max-width: 768px) {
+    #pitch{
+        width: 70%;
+        height: 70%;
+        background-size: 100% 100%;
+    }
+}
+ 
+/* les catres de joueurs*/
+.container_card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    /* margin: 20px; */
+}
+.style_card{
+    background-image: url(img/badge_gold.webp);
+    background-repeat: no-repeat;
+    width: 250px;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    margin-bottom: 10px;
+}
+.style_card img {
+    width: 75%;
+    height: 50%;
+}
+.card_content {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+.player_name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.player_position {
+    font-size: 1em;
+    color: gray;
+}
+
+.player_details {
+    font-size: 0.9em;
+    color: black;
+    margin: 10px 0;
+}
+/* .player-rating {
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffcc00;
+} */
+
+
+.form-add-player{
+    /* position: absolute; */
+    position: fixed;
+    inset: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10em;
+    /* border: ; */
+    z-index: 5;
+    visibility: hidden;
+}
+.info_player{
+    width: 100%;
+}
+.form-add-player input{
+    width: 100%;
+    padding: 4px;
+}
+.info_1, .info_2, .info_3{
+    width: 100%;
+    display: flex;
+    margin-bottom: 10px;
+}
+#add_button{
+    border-radius: 50px;
+    padding: 6px;
+    background-color: rgb(220, 140, 140);
+}
+
+/* style card */
+.p_card{
+    transform: translate(-50%, -100%);
+    width: 18%;
+    height: 10%;
+    background-image: url('img/badge_gold.webp');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}

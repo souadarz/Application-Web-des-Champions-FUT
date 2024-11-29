@@ -12,8 +12,8 @@
             <label for="formation">Formation : </label>
             <select id="formation_select">
                 <option value="">selectioner formation</option>
-                <option value="433">4-3-3</option>
-                <option value="4222">4-2-2-2</option>
+                <option value="4-3-3">4-3-3</option>
+                <option value="4-4-2">4-4-2</option>
             </select>
         </div>
         <div class="title">
@@ -24,21 +24,61 @@
     <div class="container">
         <!-- <div class="bar_left"></div> -->
         <div id="pitch">
-            <!-- <div class="gk">GK</div>
-            <div class="lb">LB</div>
-            <div class="rb">RB</div>
-            <div class="cb1">CB</div>
-            <div class="cb2">CB</div>
-            <div class="cm1">CM</div>
-            <div class="cm2">CM</div>
-            <div class="cm3">CM</div>
-            <div class="lw">LW</div>
-            <div class="rw">RW</div>
-            <div class="ST">ST</div> -->
         </div>
         <div class="bar_right">
-        </div>
+            <button id="add_button">add player</button>
+            <div class="container_card" id="container_card">
+        </div> 
     </div>
-    <script src="script.js"></script>
+    <form class="formulaire" id="id_form">
+        <div id="ajouter_player">
+            <!-- <select name="" id="select_role">_
+                <option value="option_1">add</option>
+                <option value="option_player">add a player</option>
+                <option value="option_Goalkeeper">add a goalkeeper</option>
+            </select> -->
+            <div id="player" class="form-add-player">
+                <div class="info_player">
+                    <div class="info_1">
+                        <label for="">Name</label> 
+                        <input type="text" id="name" placeholder="name">
+                        <label for="">photo</label>
+                        <input type="text" id="photo" placeholder="insert link photo">
+                    </div>
+                    <div class="info_2">
+                        <label for="">nationality</label>
+                        <input type="text" id="nationality" placeholder="nationality">
+                        <label for="">flag</label>
+                        <input type="text" id="flag" placeholder="insert link flag">
+                    </div>
+                    <div class="info_3">
+                        <label for="">club</label>
+                        <input type="text" id="club" placeholder="club">
+                        <!-- <label for="">logo</label>
+                        <input type="text" placeholder="insert link  of club logo"> -->
+                        <label for="">rating</label>
+                        <input type="text" placeholder="rating">
+                    </div>
+                    <div>
+                        <label for="">shooting</label>
+                        <input type="text" id="shooting" placeholder="shooting">
+                        <label for="">passing</label> 
+                        <input type="text" id="passing" placeholder="passing">
+                        <label for="">dribbling</label> 
+                        <input type="text" id="dribbling" placeholder="dribbling">
+                        <label for="">defending</label> 
+                        <input type="text" id="defending" placeholder="defending">
+                        <label for="">physical</label> 
+                        <input type="text" id="physical" placeholder="physical">
+                    </div>
+                    <div>
+                        <button id="cancel">cancel</button>
+                        <button id="add" type="submit">add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="formation.js"></script>
 </body>
 </html>
