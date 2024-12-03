@@ -31,134 +31,117 @@
             <div class="container_card" id="container_card">
         </div> 
     </div>
-    <!-- <form class="formulaire" id="id_form">
-        <div id="ajouter_player">
-            <select name="" id="select_role">_
-                <option value="option_1">add</option>
-                <option value="option_player">add a player</option>
-                <option value="option_Goalkeeper">add a goalkeeper</option>
-            </select>
-            <div id="player" class="form-add-player">
-                <div class="info_player">
-                    <div class="info_1">
-                        <label for="">Name</label> 
-                        <input type="text" id="name" placeholder="name">
-                        <label for="">photo</label>
-                        <input type="text" id="photo" placeholder="insert link photo">
-                        <label for="">position</label>
-                        <input type="text" id="position" placeholder="position">
-                    </div>
-                    <div class="info_2">
-                        <label for="">nationality</label>
-                        <input type="text" id="nationality" placeholder="nationality">
-                        <label for="">flag</label>
-                        <input type="text" id="flag" placeholder="insert link flag">
-                    </div>
-                    <div class="info_3">
-                        <label for="">club</label>
-                        <input type="text" id="club" placeholder="club">
-                        <label for="">logo</label>
-                        <input type="text" placeholder="insert link  of club logo">
-                        <label for="">rating</label>
-                        <input type="text" id="rating" placeholder="rating">
-                    </div>
-                    <div>
-                        <label for="">shooting</label>
-                        <input type="text" id="shooting" placeholder="shooting">
-                        <label for="">passing</label> 
-                        <input type="text" id="passing" placeholder="passing">
-                        <label for="">dribbling</label> 
-                        <input type="text" id="dribbling" placeholder="dribbling">
-                        <label for="">defending</label> 
-                        <input type="text" id="defending" placeholder="defending">
-                        <label for="">physical</label> 
-                        <input type="text" id="physical" placeholder="physical">
-                    </div>
-                    <div>
-                        <button id="cancel">cancel</button>
-                        <button id="add" type="submit">add</button>
-                    </div>
+
+    <div id="player" class="player-container">
+        <form id="id_form" class="formulaire">
+            <h1 class="form-title">Add New Player Form</h1>
+            <div class="form-content">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="name">
+                </div>
+                <div class="form-group">
+                    <label for="photo">Photo</label>
+                    <input type="url" id="photo" placeholder="insert link photo">
+                </div>
+                <div class="form-group">
+                    <label for="position">Position</label>
+                    <!-- <input type="text" id="position" placeholder="position"> -->
+                     <select name="position" id="select_position">
+                        <option value="">choose a position</option>
+                         <option value="GK">GK</option>
+                         <option value="CM">CM</option>
+                         <option value="ST">ST</option>
+                         <option value="CB">CB</option>
+                         <option value="LB">LB</option>
+                         <option value="RB">RB</option>
+                         <option value="LM">LM</option>
+                         <option value="RM">RM</option>
+                         <option value="LW">LW</option>
+                         <option value="RW">RW</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="nationality">Nationality</label>
+                    <input type="text" id="nationality" placeholder="nationality">
+                </div>
+                <div class="form-group">
+                    <label for="flag">Flag</label>
+                    <input type="url" id="flag" placeholder="insert link flag">
+                </div>
+                <div class="form-group">
+                    <label for="logo">logo</label>
+                    <input type="url" id="logo" placeholder="insert link of logo">
+                </div>
+                <div class="form-group">
+                    <label for="club">Club</label>
+                    <input type="url" id="club" placeholder="club">
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <input type="number" id="rating" placeholder="rating">
+                </div>
+            <div id="statistique" class="">
+                <div class="form-group">
+                    <label for="pace">Pace</label>
+                    <input type="number" id="pace" placeholder="pace">
+                </div>
+                <div class="form-group">
+                    <label for="shooting">Shooting</label>
+                    <input type="number" id="shooting" placeholder="shooting">
+                </div>
+                <div class="form-group">
+                    <label for="passing">Passing</label>
+                    <input type="number" id="passing" placeholder="passing">
+                </div>
+                <div class="form-group">
+                    <label for="dribbling">Dribbling</label>
+                    <input type="number" id="dribbling" placeholder="dribbling">
+                </div>
+                <div class="form-group">
+                    <label for="defending">Defending</label>
+                    <input type="number" id="defending" placeholder="defending">
+                </div>
+                <div class="form-group">
+                    <label for="physical">Physical</label>
+                    <input type="number" id="physical" placeholder="physical">
                 </div>
             </div>
-        </div>
-    </form> -->
-    
-    <!-- <div> -->
-        <div id="player" class="absolute w-full h-full justify-center items-center top-5 hidden">
-            <form class="formulaire border border-red-500 w-1/2 h-1/2 overflow-auto p-12 " id="id_form">
-                <h1 class="text-3xl font-bold text-gray-800 text-center">Add New Player Form </h1>
-                <div id="" class="w-full">
-                    <!-- <select name="" id="select_role">_
-                        <option value="option_1">add</option>
-                        <option value="option_player">add a player</option>
-                        <option value="option_Goalkeeper">add a goalkeeper</option>
-                    </select> -->
-                    <div id="" class="w-full">
-                        <div class="w-full">
 
-                            <div class="mb-2">
-                                <label class="w-[19%] inline-block" for="">Name</label> 
-                                <input class="w-4/5 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" id="name" placeholder="name">
-                            </div>
-                            <div class="mb-2">
-                                <label class="w-[19%] inline-block" for="">photo</label>
-                                <input class="w-4/5 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" id="photo" placeholder="insert link photo">
-                            </div>
-                            <div class="mb-2" class="">
-                                <label class="w-[19%] inline-block" for="">position</label>
-                                <input class="w-4/5 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" id="position" placeholder="position">
-                            </div>
-                            <div class="mb-2">
-                                <label class="w-[19%] inline-block" for="">nationality</label>
-                                <input class="w-4/5 px-4 py-2 border border-4/5y-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" id="nationality" placeholder="nationality">
-                            </div>
-                            <div class="mb-2">
-    
-                                <label class="w-[19%] inline-block" for="">flag</label>
-                                <input class="w-4/5 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" id="flag" placeholder="insert link flag">
-                            </div>
-                            <div class="mb-2"> 
-                                                            <label class="w-[19%] inline-block" for="">club</label>
-                                <input class="w-4/5 px-4 py-2 border border-4/5y-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" id="club" placeholder="club">
-                            </div>
-                            <div class="mb-2" class="">
-                                <label class="w-[19%] inline-block" for="">rating</label>
-                                <input class="w-4/5 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" id="rating" placeholder="rating">
-                            </div>
-                            <div>
-                                <div  class="mb-2">
-                                <label class="w-[19%] inline-block" for="">shooting</label>
-                                <input class="w-4/5 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" id="shooting" placeholder="shooting">
-                                </div>
-                                <div class="mb-2">
-                                    <label class="w-[19%] inline-block" for="">passing</label> 
-                                    <input class="w-4/5 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" id="passing" placeholder="passing">
-                                </div>
-                                <div class="mb-2">
-                                    <label class="w-[19%] inline-block" for="">dribbling</label> 
-                                    <input class="w-4/5 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" id="dribbling" placeholder="dribbling">
-                                </div>
-                                <div class="mb-2">
-                                    <label class="w-[19%] inline-block" for="">defending</label> 
-                                    <input class="w-4/5 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" id="defending" placeholder="defending">
-                                </div>
-                                <div class="mb-2">
-                                    <label class="w-[19%] inline-block" for="">physical</label> 
-                                    <input class="w-4/5 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" id="physical" placeholder="physical">
-
-                                </div>
-                                
-                            </div>
-                            <div>
-                                <button id="cancel">cancel</button>
-                                <button id="add" type="submit">add</button>
-                            </div>
-                        </div>
-                    </div>
+            <div id="goalkeeper" class="hidden">
+                <div class="form-group">
+                    <label for="">diving</label>
+                    <input type="number" id="diving" placeholder="diving">
                 </div>
-            </form>
+                <div class="form-group">
+                    <label for="handling">handling</label>
+                    <input type="number" id="handling" placeholder="handling">
+                </div>
+                <div class="form-group">
+                    <label for="kicking">kicking</label>
+                    <input type="number" id="kicking" placeholder="kicking">
+                </div>
+                <div class="form-group">
+                    <label for="reflexes">reflexes</label>
+                    <input type="number" id="reflexes" placeholder="reflexes">
+                </div>
+                <div class="form-group">
+                    <label for="speed">speed</label>
+                    <input type="number" id="speed" placeholder="speed">
+                </div>
+                <div class="form-group">
+                    <label for="positioning">positioning</label>
+                    <input type="number" id="positioning" placeholder="positioning">
+                </div> 
+            </div>
+            <div class="form-actions">
+                <button type="button" id="cancel">Cancel</button>
+                <button type="submit" id="add">Add</button>
+            </div>
         </div>
-    </div>
+        </form>
+    </div>    
+
     <script src="formation.js"></script>
 </body>
 </html>
