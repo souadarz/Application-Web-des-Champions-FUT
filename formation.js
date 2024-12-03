@@ -1,9 +1,15 @@
 
-  loadData();
-  let global_formation = localStorage.getItem("formation");
-  global_formation = (global_formation)? JSON.parse(global_formation): {formation:"4-3-3", positions: {}};
-// console.log(global_formation);
-change_formation(global_formation.formation);
+let global_formation = localStorage.getItem("formation");
+if(global_formation){
+  global_formation = JSON.parse(global_formation)
+}
+else{
+  global_formation = {formation:"4-3-3", positions: {}};
+  localStorage.setItem("formation", JSON.stringify(global_formation));
+}
+console.log(global_formation);
+loadData().then(players=>{change_formation(global_formation.formation);})
+
 const pitch = document.getElementById("pitch");
 let formation_select = document.getElementById("formation_select");
 const container_card = document.getElementById("container_card");
@@ -182,11 +188,9 @@ function change_formation(id_formation) {
             mydiv.style.top = player_position.position.y;
             mydiv.style.left = player_position.position.x;
             mydiv.style.position = "absolute";
-            console.log(global_formation.positions);
-            
-            if(global_formation.positions){ // hadi khsseha tbdell
-              console.log("id " + global_formation.positions);
-              let p = get_player_byname(global_formation.positions[player_position.player_id], players);
+            if(global_formation.positions[player_position.role]){
+              console.log("role " + global_formation.positions[player_position.role]);
+              let p = get_player_byname(global_formation.positions[player_position.role], players);
               console.log(p);
               if (p) {
                 mydiv.innerHTML = (p.position !== "GK") ? player_html(p) : goolKeeper_html(p);
@@ -211,25 +215,85 @@ function change_formation(id_formation) {
     })
 }
 
+function valid_Statistique(Input_value) {
+  let valueInput = parseInt(Input_value);
+
+  if (valueInput < 0 || valueInput > 100) {
+    alert("Veuillez entrer un nombre compris entre 0 et 100");
+    return false;
+  }
+  return true;
+}
+
 function addPlayer(){
   let player = {};
+  const msg_validation = document.getElementById("validation");
+  let is_Valid = true ;
+  const p_name = document.getElementById("name").value;
+  let regex = /^[a-zA-Z]{2,}([ -][a-zA-Z]{2,})$/;
+  if(!regex.test(p_name)){
+    is_Valid = false;
+    document.getElementById("name").style.borderColor = "red";
+    msg_validation.style.display = "block";
+    // alert("le nom du joueur est non valid !!!!");
+  }
+  const p_photo = document.getElementById("photo").value;
+  if(p_photo.trim().length < 10){
+    is_Valid = false;
+    document.getElementById("photo").style.borderColor = "red";
+    // alert("photo non valid !!!!");
+  }
+
+  const p_nationality = document.getElementById("nationality").value;
+  if(!regex.test(p_nationality)){
+    is_Valid = false;
+    document.getElementById("nationality").style.borderColor = "red";
+    // alert("nationality non valid !!!!");
+  }
   
-  player.name = document.getElementById("name").value;
-  player.photo = document.getElementById("photo").value;
-  player.position = document.getElementById("select_position").value;
-  player.nationality = document.getElementById("nationality").value;
-  player.logo = document.getElementById("logo").value;
-  player.flag = document.getElementById("flag").value;
-  player.club = document.getElementById("club").value;
-  player.rating = document.getElementById("rating").value;
+  const p_rating= document.getElementById("rating").value;
+  if (!valid_Statistique(p_rating)) {
+    is_Valid = false;
+    document.getElementById("rating").style.borderColor = "red";
+    
+  }
+  const p_shooting = document.getElementById("shooting").value;
+  if (!valid_Statistique(p_shooting)) {
+    is_Valid = false;
+    document.getElementById("shooting").style.borderColor = "red";
+  }
+
+  // const p_name = document.getElementById("name").value;
+  // const p_photo = document.getElementById("photo").value;
+  const p_position = document.getElementById("select_position").value;
+  // const p_nationality = document.getElementById("nationality").value;
+  const p_flag = document.getElementById("flag").value;
+  const p_club = document.getElementById("club").value;
+  const p_logo = document.getElementById("logo").value;
+  // const p_rating= document.getElementById("rating").value;
+  const p_pace = document.getElementById("pace").value;
+  // const p_shooting = document.getElementById("shooting").value;
+  const p_passing = document.getElementById("passing").value;
+  const p_dribbling = document.getElementById("dribbling").value;
+  const p_defending = document.getElementById("defending").value;
+  const p_physical = document.getElementById("physical").value;
+
+  player.name = p_name
+  player.photo = p_photo
+  player.position = p_position
+  player.nationality = p_nationality
+  player.logo = p_logo
+  player.flag = p_flag
+  player.club = p_club
+  player.rating = p_rating
 
   if(player.position !== "GK"){
-  player.pace = document.getElementById("pace").value;
-  player.shooting = document.getElementById("shooting").value;
-  player.passing = document.getElementById("passing").value;
-  player.dribbling = document.getElementById("dribbling").value;
-  player.defending = document.getElementById("defending").value;
-  player.physical = document.getElementById("physical").value;
+  player.pace = p_pace
+  player.shooting = p_shooting
+  player.passing = p_passing
+  player.dribbling = p_dribbling
+  player.defending = p_defending
+  player.physical = p_physical
   }
   else{
     player.diving =document.getElementById("diving").value;
@@ -244,7 +308,7 @@ function addPlayer(){
   const players = JSON.parse(localStorage.getItem("ObjetPlayers"));
   players.push(player);
   localStorage.setItem("ObjetPlayers", JSON.stringify(players));
-  location.reload();
+  // location.reload();
 }
 
 function loadData(){
@@ -284,10 +348,9 @@ function displayPlayers(players){
       let selected_card = document.getElementById(selectedCardDivId);
       selected_card.innerHTML = card_html;
       container_card.removeChild(card);
-      let player_id = parseInt(selected_card.id.substr(selected_card.id.indexOf('_')+1));
       // achanger
       // global_formation.positions[selected_card.dataset.role] = player.name;
-      global_formation.positions[selected_card.id] = player.name;
+      global_formation.positions[selected_card.dataset.role] = player.name;
       localStorage.setItem("formation", JSON.stringify(global_formation));
       const filteredPlayers = filterPlayers(selected_card.dataset.role);
       displayPlayers(filteredPlayers);
@@ -315,21 +378,6 @@ function filterPlayers (role){
   const players = JSON.parse(localStorage.getItem("ObjetPlayers"));
   return players.filter(player => {return (player.position === role && !player_exists(player))});
 }
-
-// function remplaçant(){
-//   selectedCardDivId = document.getElementById(selectedCardDivId);
-//     if(selectedCardDivId.innerHTML === ""){
-//       console.log(selectedCardDivId.innerHTML === "")
-//       selectedCardDivId.innerHTML = card_html;
-//     }
-//     else{
-//       console.log("inside else")
-//       let temp = selectedCardDivId.innerHTML;
-//       container_card.appendChild(card);
-//       selectedCardDivId.innerHTML = card_html;
-//       card_html = temp;
-//     }
-// }
 
 const formulaire = document.getElementById("id_form");
 formulaire.addEventListener("change", () => {

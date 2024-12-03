@@ -87,7 +87,7 @@
 } */
 
 
-.info_player{
+/* .info_player{
     width: 100%;
 }
 .form-add-player input{
@@ -98,8 +98,8 @@
     width: 100%;
     display: flex;
     margin-bottom: 10px;
-}
-#add_button{
+} */
+#add_button {
     border-radius: 50px;
     padding: 6px;
     background-color: rgb(220, 140, 140);
@@ -261,4 +261,8 @@
 .form-actions #add {
     background-color: rgb(206, 214, 218);
     color: black;
+}
+#validation{
+    display: none;
+    color: red;
 }
