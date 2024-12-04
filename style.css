@@ -281,3 +281,22 @@
     display: none;
     color: red;
 }
+.delete_btn {
+    /* position :absolute; */
+    transform: translate(400%, 140%) ;
+    /* top:  ; */
+    /* right: ; */
+    left: 100%;
+    /* float: right; */
+    background-color: rgb(220, 140, 140); 
+    color:  white;
+    border-radius: 100%; 
+    width: 2rem;
+    height: 2rem; 
+    display: flex;
+    align-items: center ;
+    justify-content: center ;
+    /* items-center  */
+    /* justify-center  */
+    margin: 1px;
+}

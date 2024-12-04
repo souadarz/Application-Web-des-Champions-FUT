@@ -1,21 +1,21 @@
 //chargement de la formation du locale storage
 let global_formation = localStorage.getItem("formation");
-if(global_formation){
+if (global_formation) {
   global_formation = JSON.parse(global_formation)
 }
-else{
-  global_formation = {formation:"4-3-3", positions: {}};
+else {
+  global_formation = { formation: "4-3-3", positions: {} };
   localStorage.setItem("formation", JSON.stringify(global_formation));
 }
 console.log(global_formation);
 // chargement du joueur a partir du local storage ou du json
 let players_promise = loadData()
-// attendre l'execition de loadData et en suite afficher la formation
-if(players_promise){   
-  players_promise.then(players=>{change_formation(global_formation.formation)})
+// attendre l'execution de loadData et en suite afficher la formation
+if (players_promise) {
+  players_promise.then(players => { change_formation(global_formation.formation) })
 }
 // afficher la formation
-else{
+else {
   change_formation(global_formation.formation);
 }
 
@@ -27,8 +27,8 @@ let selectedCardDivId = "";
 formation_select.addEventListener("change", (event) => {
   const formation_selected = event.target.value;
   change_formation(formation_selected);
-  localStorage.setItem("formation", JSON.stringify({formation:formation_selected, positions:global_formation.positions}));
-  })
+  localStorage.setItem("formation", JSON.stringify({ formation: formation_selected, positions: global_formation.positions }));
+})
 
 const add_button = document.getElementById("add_button")
 add_button.addEventListener('click', () => {
@@ -51,21 +51,21 @@ cancel_button.addEventListener('click', () => {
 })
 // l'ajout d'un joueur
 const form = document.getElementById("id_form");
-form.addEventListener('submit', (event)=>{
+form.addEventListener('submit', (event) => {
   event.preventDefault();
   // console.log(event);
   addPlayer();
 })
 
-function get_player_byname(name, players){
-  for (let player of players){
+function get_player_byname(name, players) {
+  for (let player of players) {
     if (player.name === name) {
       return player;
     }
   }
 }
 
-function player_html(player, clss){
+function player_html(player, clss) {
   return `
      <div id="player_card_${player.position} "class="${clss}">
         <div class="player_card_top">
@@ -125,8 +125,8 @@ function player_html(player, clss){
     `
 }
 
-function goolKeeper_html(player, clss){
-  return  `
+function goolKeeper_html(player, clss) {
+  return `
   <div class="${clss}">
      <div class="player_card_top">
          <div class="player_info1">
@@ -187,7 +187,7 @@ function goolKeeper_html(player, clss){
 
 function change_formation(id_formation) {
   console.log(id_formation);
-  
+
   let players = JSON.parse(localStorage.getItem("ObjetPlayers"));
   fetch('./formations.json')
     .then(response => response.json())
@@ -203,7 +203,7 @@ function change_formation(id_formation) {
             mydiv.style.top = player_position.position.y;
             mydiv.style.left = player_position.position.x;
             mydiv.style.position = "absolute";
-            if(global_formation.positions[player_position.id]){
+            if (global_formation.positions[player_position.id]) {
               console.log("role " + global_formation.positions[player_position.id]);
               let p = get_player_byname(global_formation.positions[player_position.id], players);
               console.log(p);
@@ -214,7 +214,7 @@ function change_formation(id_formation) {
             // let button = document.createElement("button");
             // button.textContent = "+";
             // mydiv.appendChild(button);
-            mydiv.addEventListener('click', (event)=>{
+            mydiv.addEventListener('click', (event) => {
               console.log(event);
               selectedCardDivId = "player_" + player_position.id;
               const filteredPlayers = filterPlayers(player_position.role);
@@ -240,36 +240,36 @@ function valid_Statistique(Input_value) {
   return true;
 }
 
-function addPlayer(){
+function addPlayer() {
   let player = {};
   const msg_validation = document.getElementById("validation");
-  let is_Valid = true ;
+  let is_Valid = true;
   const p_name = document.getElementById("name").value;
   let regex = /^[a-zA-Z]{2,}([ -][a-zA-Z]{2,})$/;
-  if(!regex.test(p_name)){
+  if (!regex.test(p_name)) {
     is_Valid = false;
     document.getElementById("name").style.borderColor = "red";
     // alert("le nom du joueur est non valid !!!!");
   }
   const p_photo = document.getElementById("photo").value;
-  if(p_photo.trim().length < 10){
+  if (p_photo.trim().length < 10) {
     is_Valid = false;
     document.getElementById("photo").style.borderColor = "red";
     // alert("photo non valid !!!!");
   }
 
   const p_nationality = document.getElementById("nationality").value;
-  if(!regex.test(p_nationality)){
+  if (!regex.test(p_nationality)) {
     is_Valid = false;
     document.getElementById("nationality").style.borderColor = "red";
     // alert("nationality non valid !!!!");
   }
-  
-  const p_rating= document.getElementById("rating").value;
+
+  const p_rating = document.getElementById("rating").value;
   if (!valid_Statistique(p_rating)) {
     is_Valid = false;
     document.getElementById("rating").style.borderColor = "red";
-    
+
   }
   const p_shooting = document.getElementById("shooting").value;
   if (!valid_Statistique(p_shooting)) {
@@ -329,51 +329,62 @@ function addPlayer(){
   }
 }
 
-function loadData(){
-  if(!localStorage.getItem("ObjetPlayers")){
+function loadData() {
+  if (!localStorage.getItem("ObjetPlayers")) {
     return fetch('./players.json')
-    .then(response => response.json())
-    .then(data => {
-      console.log("players",data);
-      localStorage.setItem("ObjetPlayers", JSON.stringify(data.players));
-      return data.players;
-    })
-}
-  
-}
-document.addEventListener("DOMContentLoaded",reloadPlayers);
+      .then(response => response.json())
+      .then(data => {
+        console.log("players", data);
+        localStorage.setItem("ObjetPlayers", JSON.stringify(data.players));
+        return data.players;
+      })
+  }
 
-function reloadPlayers(){
+}
+document.addEventListener("DOMContentLoaded", reloadPlayers);
+
+function reloadPlayers() {
   let players_promise = loadData()
-  if(players_promise){
-    players_promise.then(players=>{displayPlayers(players)})
+  if (players_promise) {
+    players_promise.then(players => { displayPlayers(players) })
   }
-  else{
-  const players = JSON.parse(localStorage.getItem("ObjetPlayers"));
-  console.log("ObjetPlayers : ",players);
-  displayPlayers(players);
+  else {
+    const players = JSON.parse(localStorage.getItem("ObjetPlayers"));
+    console.log("ObjetPlayers : ", players);
+    displayPlayers(players);
   }
 }
-function displayPlayers(players){
+function displayPlayers(players) {
   container_card.innerHTML = "";
-  players.forEach(player=> { 
+  players.forEach((player,index) => {
     let card = document.createElement("div");
     let card_html;
-  if(player.position !== "GK"){
-    card_html = player_html(player, "player_card");
+    if (player.position !== "GK") {
+      card_html = player_html(player, "player_card");
     }
-    else{
+    else {
       card_html = goolKeeper_html(player, "player_card");
     }
     card.innerHTML = card_html;
 
+    const delete_button = document.createElement('button');
+    delete_button.classList.add("delete_btn")
+    delete_button.innerHTML = '×';
+    delete_button.onclick = (event) => {
+      event.stopPropagation();
+      players.splice(index, 1);
+      displayPlayers(players);
+      localStorage.setItem("ObjetPlayers", JSON.stringify(players));
+    };
+    card.prepend(delete_button);
+    
+
     card.addEventListener('click', () => {
       console.log("clicked");
       let selected_card = document.getElementById(selectedCardDivId);
-      let position_id = parseInt(selected_card.id.substr(selected_card.id.indexOf('_')+1));
+      let position_id = parseInt(selected_card.id.substr(selected_card.id.indexOf('_') + 1));
       selected_card.innerHTML = card_html;
       container_card.removeChild(card);
-      // achanger
       // global_formation.positions[selected_card.dataset.role] = player.name;
       global_formation.positions[position_id] = player.name;
       localStorage.setItem("formation", JSON.stringify(global_formation));
@@ -382,44 +393,81 @@ function displayPlayers(players){
       // location.reload();
       console.log(global_formation);
     })
-    // for (const [key, player_name] of Object.entries(global_formation.positions)) {
-      //   if(player_name === player.name) {
-        //     return
-        //   }
-        // }
+
     // si le joueur est affecté return pour ne pas l'afficher a la liste des joueurs
-    if(!player_exists(player)){
-    container_card.appendChild(card);
+    if (!player_exists(player)) {
+      container_card.appendChild(card);
     }
   });
 }
 
-function player_exists(player){
-  for(let [role, player_name] of Object.entries(global_formation.positions)){
-    if(player.name === player_name){
+function player_exists(player) {
+  for (let [role, player_name] of Object.entries(global_formation.positions)) {
+    if (player.name === player_name) {
       return true;
     }
   }
   return false;
 }
-function filterPlayers (role){
+function filterPlayers(role) {
   const players = JSON.parse(localStorage.getItem("ObjetPlayers"));
-  return players.filter(player => {return (player.position === role && !player_exists(player))});
+  return players.filter(player => { return (player.position === role && !player_exists(player)) });
 }
 
 const formulaire = document.getElementById("id_form");
 formulaire.addEventListener("change", () => {
   const select_position = document.getElementById("select_position");
-  if(select_position.value === "GK"){
+  if (select_position.value === "GK") {
     let goalkeeper = document.getElementById("goalkeeper");
     goalkeeper.classList.remove("hidden");
     let statistique_div = document.getElementById("statistique");
     statistique_div.classList.add("hidden");
   }
-  else{
+  else {
     let goalkeeper = document.getElementById("goalkeeper");
     goalkeeper.classList.add("hidden");
     let statistique_div = document.getElementById("statistique");
     statistique_div.classList.remove("hidden");
   }
 })
+
+
+
+
+
+
+
+
+
+let joueurs;
+let container = document.getElementById("container_card");
+container.forEach(player=>{
+  player.addEventListener('click', ()=>{
+    console.log(player.name);
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
